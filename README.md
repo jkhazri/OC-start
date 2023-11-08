@@ -41,5 +41,5 @@ Now the ingress is ready to deploy:
 kubectl apply -f PHP-ingress-file.yaml
 ```
 
- to test the application open your browser and type http://yourDNS/PHPdemo
+ to test the application open your browser and type http://yourDNS/
 
