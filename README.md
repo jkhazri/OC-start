@@ -1,8 +1,9 @@
 # In this demo you will run a simple PHP application:
 
-Before all clone this project on your local machine 
+Before all clone this project on your local machine and move under OC-start file:
 ```
 git clone https://github.com/jkhazri/OC-start.git
+cd OC-start
 ```
 1. create the deployment of the PHP app
 ```
@@ -13,7 +14,9 @@ kubectl apply -f deployment-PHP-demo.yaml
 kubectl apply -f service-PHP-demo.yaml
 ```
 3. create the ingress that will be used to expose your PHP appli to the external world.In our case we used the domain docs-vcluster2-443.m1dns.com , so make sure that the Domain is available and change the PHP-ingress-file.yaml with your domain name.
-example :
+   
+Example :
+
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
