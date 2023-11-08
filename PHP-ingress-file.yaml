@@ -7,7 +7,7 @@ spec:
   - host: docs-vcluster2-443.m1dns.com  # Set the desired domain or hostname here
     http:
       paths:
-      - path: /PHPdemo
+      - path: /
         pathType: Prefix # type the path that will will be used
         backend:
           service:
