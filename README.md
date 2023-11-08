@@ -14,6 +14,7 @@ kubectl apply -f deployment-PHP-demo.yaml
 kubectl apply -f service-PHP-demo.yaml
 ```
 3. create the ingress that will be used to expose your PHP appli to the external world.In our case we used the domain docs-vcluster2-443.m1dns.com , so make sure that the Domain is available and change the PHP-ingress-file.yaml with your domain name.
+For that you need to vim or nano the PHP-ingress-file.yaml and change variables (you will see an indication in the yaml file it self)
    
 Example :
 
