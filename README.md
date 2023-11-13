@@ -1,5 +1,48 @@
 # In this demo you will run a simple PHP application:
 
+## what you need to check before preparing your deployment
+
+**Important**: 
+
+Please make sure you have enough resources in your Vcluseter before you start your deployment.
+
+**Best practice :** 
+You may need to limit your application ressources by adding what we called ResourceQuota kubernetes kind in your deployment Yaml file.
+
+In this example, I've added a ResourceQuota object that sets resource limits for CPU and memory. Adjust the values based on your application's requirements. You can customize the CPU, memory and ather values according to your application's needs and the available resources in your Kubernetes cluster.
+
+If you need to learn more about the ResourceQuota , please refer to this documentation : https://kubernetes.io/docs/concepts/policy/resource-quotas/
+
+```bash
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: php-app-ingress
+spec:
+  rules:
+  - host: docs-vcluster2-443.m1dns.com  # Set the desired domain or hostname here
+    http:
+      paths:
+      - path: /
+        pathType: Prefix # type the path that will be used
+        backend:
+          service:
+            name: php-app-clusterip-service
+            port:
+              number: 20210
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ingress-resource-quota
+spec:
+  hard:
+    cpu: "500m"  # 0.5 CPU cores
+    memory: "512Mi"  # 512 Megabytes of memory
+
+```
+
+
 Before all clone this project on your local machine and move under OC-start file:
 ```
 git clone https://github.com/jkhazri/OC-start.git
@@ -42,4 +85,3 @@ kubectl apply -f PHP-ingress-file.yaml
 ```
 
  to test the application open your browser and type http://yourDNS/
-
